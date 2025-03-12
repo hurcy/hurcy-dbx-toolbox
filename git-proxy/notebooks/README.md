@@ -42,5 +42,5 @@ $ curl --cacert cacert.pem https://daniel.haxx.se
 convert pem to crt
 
 ```
-openssl x509 -inform PEM -in fullchain.pem -out [도메인 주소].crt
+openssl x509 -inform PEM -in fullchain.pem -out daniel.haxx.se.crt
 ```
