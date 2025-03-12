@@ -1,0 +1,9 @@
+*.pem
+*.crt
+.idea
+databricks_repo_proxy.egg-info/
+**/__pycache__/
+dist
+.envrc
+.pytest_cache
+.DS_Store
