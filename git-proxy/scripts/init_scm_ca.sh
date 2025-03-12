@@ -35,6 +35,8 @@ if [ -f "$CERT_FILE" ]; then
   echo "export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh
   echo "Certificate installation completed successfully"
   export GIT_PROXY_CA_CERT_PATH=/etc/ssl/certs/ca-certificates.crt
+  #export GIT_PROXY_TEST_URL=https://please.change.me.com
+  export GIT_PROXY_ENABLE_SSL_VERIFICATION=true
 else
   echo "ERROR: Certificate file not found at $CERT_FILE"
   exit 1
