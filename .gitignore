@@ -7,3 +7,4 @@ dist
 .envrc
 .pytest_cache
 .DS_Store
+not-yet/*
