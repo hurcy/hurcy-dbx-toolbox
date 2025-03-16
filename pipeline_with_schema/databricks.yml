@@ -11,3 +11,5 @@ targets:
   dev:
     default: true
     mode: development
+  prd:
+    mode: production

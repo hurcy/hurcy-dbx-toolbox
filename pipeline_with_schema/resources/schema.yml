@@ -1,7 +1,7 @@
 resources:
   schemas:
     example_schema:
-      catalog_name: bundle_test
+      catalog_name: main
       name: example_schema
 
       comment: |
