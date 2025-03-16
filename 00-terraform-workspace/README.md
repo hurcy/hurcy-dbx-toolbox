@@ -25,6 +25,7 @@ aws_secret_access_key="" # AWS Secret Key
 ```
 
 ### 수행 방법 
+0. delete .terraform, .terraform.tfstate
 1. input.tfvars 파일상의 각 정의된 변수값을 수정합니다. 
 2. <code>terraform init </code> 을 수행해서 terraform과 provioder를 초기화 합니다. 
 3. <code>terraform validate </code> 를 수행해서 코드상의 오류가 없는지 검증합니다.
