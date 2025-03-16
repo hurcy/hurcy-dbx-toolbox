@@ -1,0 +1,30 @@
+terraform {
+  required_providers {
+    databricks = {
+      source = "databricks/databricks"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.15.0"
+    }
+  }
+}
+
+# provider "aws" {
+#   region = var.region
+# }
+
+provider "aws" {
+    region = var.region
+    access_key = var.aws_access_key_id
+    secret_key = var.aws_secret_access_key
+}
+
+// initialize provider in "MWS" mode to provision new workspace
+provider "databricks" {
+  alias         = "mws"
+  host          = "https://accounts.cloud.databricks.com"
+  client_id     = var.client_id
+  client_secret = var.client_secret
+  account_id    = var.databricks_account_id
+}
