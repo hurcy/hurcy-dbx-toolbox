@@ -1,0 +1,16 @@
+bundle:
+  name: account-group-mgmt
+
+include:
+  - ./resources/*.yml
+
+workspace:
+  host: https://one-env-hurcy.cloud.databricks.com
+
+targets:
+  dev:
+    default: true
+    mode: development
+  prd:
+    mode: production
+

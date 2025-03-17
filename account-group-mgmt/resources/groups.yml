@@ -1,0 +1,5 @@
+permissions:
+  - user_name: cinyoung.hur@databricks.com
+    level: CAN_MANAGE
+  - group_name: Data Engineering Team
+    level: CAN_MANAGE
