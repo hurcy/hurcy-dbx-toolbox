@@ -1,23 +1,16 @@
 # databricks.yml
 bundle:
   name: multi-schema-bundle
-variables:
-  schemas:
-    description: "스키마 정의 목록"
-    default:
-      - name: "example_schema"
-        comment: "예시 스키마"
-        owner: "example_user@company.com"
+
+include:
+  - ./resources/*.yml
+
+workspace:
+  host: https://one-env-hurcy.cloud.databricks.com
+
 targets:
   dev:
-    # 개발 환경 구성
-    mode: development
     default: true
-    workspace:
-      host: https://one-env-hurcy.cloud.databricks.com
-  
-  prod:
-    # 프로덕션 환경 구성
+    mode: development
+  prd:
     mode: production
-    workspace:
-      host: https://one-env-hurcy.cloud.databricks.com
