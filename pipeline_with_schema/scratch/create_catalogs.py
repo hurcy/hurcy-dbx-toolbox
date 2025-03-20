@@ -1,27 +1,3 @@
-# import csv
-# import subprocess
-
-# def create_catalogs(csv_path):
-#     with open(csv_path, 'r') as file:
-#         reader = csv.DictReader(file)
-#         for row in reader:
-#             catalog_name = f"{row['company']}_{row['business_unit']}_mig"
-#             cmd = [
-#                 'databricks', 'catalogs', 'create',
-#                 catalog_name,
-#                 '--comment', row['description'],
-#                 '--storage-root', f's3://hurcy-rootbucket/{catalog_name}'
-#             ]
-#             result = subprocess.run(
-#                 cmd, 
-#                 capture_output=True,
-#                 text=True
-#             )
-#             if result.returncode == 0:
-#                 print(f"Created: {catalog_name}")
-#             else:
-#                 print(f"Error[{result.returncode}]: {result.stderr}")
-
 # # 실행 예시
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
