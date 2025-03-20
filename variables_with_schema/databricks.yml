@@ -1,5 +1,5 @@
 bundle:
-  name: pipeline_with_schema
+  name: variables_with_schema
 
 include:
   - ./resources/*.yml
@@ -10,21 +10,19 @@ workspace:
 
 variables:
   name_prefix: 
-    description: prefix per target mode
-    default: '' 
+    description: prefix for schema per target mode
+    default: ''
     
 
 targets:
   dev:
     presets:
       pipelines_development: true
-      name_prefix: "[DEV][${workspace.current_user.short_name}]" # development mode 접두사 제거가 안됨. 맨 끝에 공백이나 _ 붙이는것도 안됨.
+      name_prefix: "[${workspace.current_user.short_name}]" # development mode 대상의 이름 고유성을 보ㅇㅏ기 위해 접두사 제거가 안됨.
     default: true
     mode: development
 
   stg:
-    presets:
-      name_prefix: "[stg]"
     mode: production
     workspace:
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
