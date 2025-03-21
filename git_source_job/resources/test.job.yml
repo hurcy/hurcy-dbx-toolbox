@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    git_source_job:
+      name: "git source job"
+
+      tasks:
+        - task_key: task_from_git_source
+          notebook_task:
+            notebook_path: src/test
+            source: GIT
+      git_source:
+        git_url: ${var.git_url}
+        git_provider: ${var.git_provider}
+        git_branch: ${var.git_branch}
+      queue:
+        enabled: true
