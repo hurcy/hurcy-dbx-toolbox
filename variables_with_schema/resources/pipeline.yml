@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    example_pipeline:
+      name: "${var.name_prefix}variable"
+
+      catalog: ${resources.schemas.system2.catalog_name}
+      target: ${resources.schemas.system2.name}
+
+      libraries:
+        - file:
+            path: ../src/range.sql
+        - file:
+            path: ../src/double.sql
+
+      serverless: true
