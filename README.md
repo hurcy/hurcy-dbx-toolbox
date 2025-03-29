@@ -1,0 +1,41 @@
+dbx toolbox
+
+- account 생성
+	- 기본 관리자 확인
+	- 버켓 암호화 설정
+- workspace 생성
+	- settings > Identiy and access 확인
+	- ip whitelist 추가
+- ​- 인증 설계
+	- IdP: okta 등
+- 그룹 설계
+	- 그룹 계층구조
+		- 관리자
+		- 일반 사용자
+	- SP 설정
+- 권한 설계
+	- admin, user 기본 그룹 외에 
+	- 관리자 그룹 생성 (필요 시)
+- 스토리지 암호화 설계
+	- sse? 
+	- cmk?
+	- 암호화 후에 워크스페이스에도 암호화 설정해야 적용ㅚㅁ
+- 기본 기능 테스트
+	- workspace 접근 테스트
+	- uc 접근 테스트
+	- 워크플로우 테스트 
+		- pipeline 실행 테스트
+		- job 실행 테스트
+- compute 
+	- profiles
+		- 공용클러스터 크기별로 마련
+			- auto shutdown
+			- 
+		- 공용 웨어하우스 크기별로 마련
+			- timezone 설정
+- 워크스페이스에서 공통 모듈 구성
+	- 디비 접근 모듈
+	- 디비 접근 테스트용 노트북
+- cicd 설정
+	- git-proxy 구성
+	- git 서버 연결
