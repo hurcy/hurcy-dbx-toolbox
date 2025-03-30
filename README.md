@@ -1,4 +1,4 @@
-dbx toolbox
+# dbx toolbox
 
 - account 생성
 	- 기본 관리자 확인
@@ -30,7 +30,6 @@ dbx toolbox
 	- profiles
 		- 공용클러스터 크기별로 마련
 			- auto shutdown
-			- 
 		- 공용 웨어하우스 크기별로 마련
 			- timezone 설정
 - 워크스페이스에서 공통 모듈 구성
