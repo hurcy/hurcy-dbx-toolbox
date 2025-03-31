@@ -4,87 +4,87 @@ resources:
       catalog_name: bar_bu1_mig
       name: system1_transfer
       schema_name: system1
-#     system2_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system2_transfer
-#       schema_name: system2
-#     system3_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system3_transfer
-#       schema_name: system3
-#     system4_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system4_transfer
-#       schema_name: system4
-#     system5_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system5_transfer
-#       schema_name: system5
-#     system6_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system6_transfer
-#       schema_name: system6
-#     system7_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system7_transfer
-#       schema_name: system7
-#     system8_transfer:
-#       catalog_name: bar_bu2_mig
-#       name: system8_transfer
-#       schema_name: system8
-#     system9_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system9_transfer
-#       schema_name: system9
-#     system10_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system10_transfer
-#       schema_name: system10
-#     system11_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system11_transfer
-#       schema_name: system11
-#     system12_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system12_transfer
-#       schema_name: system12
-#     system13_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system13_transfer
-#       schema_name: system13
-#     system14_transfer:
-#       catalog_name: bar_bu3_mig
-#       name: system14_transfer
-#       schema_name: system14
-#     system15_transfer:
-#       catalog_name: bar_bu4_mig
-#       name: system15_transfer
-#       schema_name: system15
-#     system16_transfer:
-#       catalog_name: bar_bu4_mig
-#       name: system16_transfer
-#       schema_name: system16
-#     system17_transfer:
-#       catalog_name: bar_bu5_mig
-#       name: system17_transfer
-#       schema_name: system17
-#     system18_transfer:
-#       catalog_name: bar_bu5_mig
-#       name: system18_transfer
-#       schema_name: system18
-#     system19_transfer:
-#       catalog_name: bar_bu6_mig
-#       name: system19_transfer
-#       schema_name: system19
-#     system20_transfer:
-#       catalog_name: bar_bu6_mig
-#       name: system20_transfer
-#       schema_name: system20
-#     system21_transfer:
-#       catalog_name: bar_bu6_mig
-#       name: system21_transfer
-#       schema_name: system21
-#     system22_transfer:
-#       catalog_name: bar_bu6_mig
-#       name: system22_transfer
-#       schema_name: system22
+    system2_transfer:
+      catalog_name: bar_bu2_mig
+      name: system2_transfer
+      schema_name: system2
+    system3_transfer:
+      catalog_name: bar_bu2_mig
+      name: system3_transfer
+      schema_name: system3
+    system4_transfer:
+      catalog_name: bar_bu2_mig
+      name: system4_transfer
+      schema_name: system4
+    system5_transfer:
+      catalog_name: bar_bu2_mig
+      name: system5_transfer
+      schema_name: system5
+    system6_transfer:
+      catalog_name: bar_bu2_mig
+      name: system6_transfer
+      schema_name: system6
+    system7_transfer:
+      catalog_name: bar_bu2_mig
+      name: system7_transfer
+      schema_name: system7
+    system8_transfer:
+      catalog_name: bar_bu2_mig
+      name: system8_transfer
+      schema_name: system8
+    system9_transfer:
+      catalog_name: bar_bu3_mig
+      name: system9_transfer
+      schema_name: system9
+    system10_transfer:
+      catalog_name: bar_bu3_mig
+      name: system10_transfer
+      schema_name: system10
+    system11_transfer:
+      catalog_name: bar_bu3_mig
+      name: system11_transfer
+      schema_name: system11
+    system12_transfer:
+      catalog_name: bar_bu3_mig
+      name: system12_transfer
+      schema_name: system12
+    system13_transfer:
+      catalog_name: bar_bu3_mig
+      name: system13_transfer
+      schema_name: system13
+    system14_transfer:
+      catalog_name: bar_bu3_mig
+      name: system14_transfer
+      schema_name: system14
+    system15_transfer:
+      catalog_name: bar_bu4_mig
+      name: system15_transfer
+      schema_name: system15
+    system16_transfer:
+      catalog_name: bar_bu4_mig
+      name: system16_transfer
+      schema_name: system16
+    system17_transfer:
+      catalog_name: bar_bu5_mig
+      name: system17_transfer
+      schema_name: system17
+    system18_transfer:
+      catalog_name: bar_bu5_mig
+      name: system18_transfer
+      schema_name: system18
+    system19_transfer:
+      catalog_name: bar_bu6_mig
+      name: system19_transfer
+      schema_name: system19
+    system20_transfer:
+      catalog_name: bar_bu6_mig
+      name: system20_transfer
+      schema_name: system20
+    system21_transfer:
+      catalog_name: bar_bu6_mig
+      name: system21_transfer
+      schema_name: system21
+    system22_transfer:
+      catalog_name: bar_bu6_mig
+      name: system22_transfer
+      schema_name: system22

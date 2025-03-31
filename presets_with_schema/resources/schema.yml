@@ -4,3 +4,87 @@ resources:
       catalog_name: bar_bu1_mig
       name: system1
       comment: system1
+    system2:
+      catalog_name: bar_bu2_mig
+      name: system2
+      comment: system2
+    system3:
+      catalog_name: bar_bu2_mig
+      name: system3
+      comment: system3
+    system4:
+      catalog_name: bar_bu2_mig
+      name: system4
+      comment: system4
+    system5:
+      catalog_name: bar_bu2_mig
+      name: system5
+      comment: system5
+    system6:
+      catalog_name: bar_bu2_mig
+      name: system6
+      comment: system6
+    system7:
+      catalog_name: bar_bu2_mig
+      name: system7
+      comment: system7
+    system8:
+      catalog_name: bar_bu2_mig
+      name: system8
+      comment: system8
+    system9:
+      catalog_name: bar_bu3_mig
+      name: system9
+      comment: system9
+    system10:
+      catalog_name: bar_bu3_mig
+      name: system10
+      comment: system10
+    system11:
+      catalog_name: bar_bu3_mig
+      name: system11
+      comment: system11
+    system12:
+      catalog_name: bar_bu3_mig
+      name: system12
+      comment: system12
+    system13:
+      catalog_name: bar_bu3_mig
+      name: system13
+      comment: system13
+    system14:
+      catalog_name: bar_bu3_mig
+      name: system14
+      comment: system14
+    system15:
+      catalog_name: bar_bu4_mig
+      name: system15
+      comment: system15
+    system16:
+      catalog_name: bar_bu4_mig
+      name: system16
+      comment: system16
+    system17:
+      catalog_name: bar_bu5_mig
+      name: system17
+      comment: system17
+    system18:
+      catalog_name: bar_bu5_mig
+      name: system18
+      comment: system18
+    system19:
+      catalog_name: bar_bu6_mig
+      name: system19
+      comment: system19
+    system20:
+      catalog_name: bar_bu6_mig
+      name: system20
+      comment: system20
+    system21:
+      catalog_name: bar_bu6_mig
+      name: system21
+      comment: system21
+    system22:
+      catalog_name: bar_bu6_mig
+      name: system22
+      comment: system22
