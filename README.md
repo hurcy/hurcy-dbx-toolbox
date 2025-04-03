@@ -48,3 +48,21 @@
 		- git-proxy 클러스터 구동시간 설정
 	- git 서버 연결
 		- git 연결 시 계정 및 인증
+- unity catalog
+	- catalog.schema.table 디자인
+	- 권한 부여
+	- connections 추가
+	- tag policies 설정
+- databricks sdk
+	- account/workspace-level 설정 및 자동화에 유용함
+- databricks cli
+	- dbx runtime manual install
+- 네이밍 컨벤션 잡기
+	- account resources
+		- cloud resources
+		- credential
+		- workspaces
+	- workspace resources
+		- dev/stg/prd
+		- business
+		- purpose
