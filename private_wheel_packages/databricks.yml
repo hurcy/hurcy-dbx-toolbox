@@ -5,7 +5,7 @@ include:
   - resources/*.yml
 
 workspace:
-  # host: https://myworkspace.cloud.databricks.com
+  host: https://one-env-hurcy.cloud.databricks.com
 
 targets:
   dev:
