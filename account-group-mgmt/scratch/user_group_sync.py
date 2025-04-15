@@ -188,6 +188,7 @@ class UserGroupManager:
             current_parents = self.group_parent_map.get(current_group.id, [])
             for cp in current_parents:
                 if not parent_id or cp != parent_id:
+                    print(current_group)
                     self._remove_from_parent(current_group.id, cp)
 
             # Add correct parent
