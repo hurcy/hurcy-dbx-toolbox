@@ -16,7 +16,6 @@ class UserGroupManager:
     def __init__(self, client):
         self.client = client
         self.existing_groups = self._load_existing_groups()
-        print(self.existing_groups)
         self.group_parent_map = self._build_parent_mapping()
 
     def _create_user(self, name, email):
@@ -280,5 +279,5 @@ def main():
         logger.info("Synchronization completed successfully")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
