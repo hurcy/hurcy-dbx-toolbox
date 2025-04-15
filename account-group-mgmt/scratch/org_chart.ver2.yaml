@@ -1,0 +1,52 @@
+# ACME Corp Organization Chart (Example)
+# Requirements:
+# 1) Multiple top-level groups can exist
+# 2) An empty group (without members) can exist
+# 3) Depth varies by group
+
+
+groups:
+  - name: ENGINEERING
+    groups:
+      - name: FRONTEND
+        users:
+          - name: Alice Kim
+            email: alice.kim@acme.com
+          - name: Bob Lee
+            email: bob.lee@acme.com
+      - name: BACKEND
+        users:
+          - name: David Choi
+            email: david.choi@acme.com
+      - name: DEVOPS
+        users:
+          - name: Charlie Park
+            email: charlie.park@acme.com
+
+
+  - name: SALES
+    groups:
+      - name: REGIONAL_SALES
+        users:
+          - name: Eva Jung
+            email: eva.jung@acme.com
+
+  - name: HR
+    groups:
+      - name: TRAINING
+        users:
+          - name: Frank Moon
+            email: frank.moon@acme.com
+      - name: RECRUITMENT
+        users:
+          - name: Grace Yoon
+            email: grace.yoon@acme.com
+
+  - name: EXECUTIVE
+    users:
+      - name: Helen Kwon
+        email: helen.kwon@acme.com
+      - name: Ian Bae
+        email: ian.bae@acme.com
+
+  - name: FUTURE_PROJECTS

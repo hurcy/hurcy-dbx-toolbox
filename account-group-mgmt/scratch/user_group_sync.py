@@ -85,12 +85,14 @@ class UserGroupManager:
         return {g.display_name: g for g in self.client.groups.list()}
 
     def _build_parent_mapping(self):
+        ref_group_prefix = "Groups"
+            
         parent_map = defaultdict(list)
         for group in self.existing_groups.values():
             members = self.client.groups.get(id=group.id).members
             if members:
                 for member in members:
-                    if member.type == "group":
+                    if ref_group_prefix in member.ref:
                         parent_map[member.value].append(group.id)
         return parent_map
 
@@ -279,5 +281,5 @@ def main():
         logger.info("Synchronization completed successfully")
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
