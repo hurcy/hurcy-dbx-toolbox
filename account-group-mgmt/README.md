@@ -119,3 +119,12 @@ Group(display_name='DEVOPS', entitlements=[], external_id=None, groups=[], id='1
 
 ## NOTE
 - initial loading time takes about 30 seconds if account has 128 groups, 3550 users.
+
+
+## TODO
+- bug fix unnecessary user sync
+2025-04-15 18:36:24,012 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
+2025-04-15 18:36:24,514 - INFO - Members added to group: 1 members -> Group ID 663409434560886
+2025-04-15 18:36:30,530 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
+2025-04-15 18:36:30,985 - INFO - Members added to group: 1 members -> Group ID 663409434560886
+2025-04-15 18:36:31,232 - INFO - Synchronization completed successfully
