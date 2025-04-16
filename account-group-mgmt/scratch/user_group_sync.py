@@ -35,23 +35,6 @@ class UserGroupManager:
             logger.error(f"Error creating/finding user: {e}")
             raise
 
-    def _create_group(self, name):
-        """Create group and return ID."""
-        try:
-            # Check existing groups
-            for group in self.client.groups.list():
-                if group.display_name == name:
-                    logger.info(f"Existing group found: {name}")
-                    return group.id
-
-            # Create new group
-            group = self.client.groups.create(display_name=name)
-            logger.info(f"Group created: {name}")
-            return group.id
-        except Exception as e:
-            logger.error(f"Error creating/finding group: {e}")
-            raise
-
     def _add_members_to_group(self, group_id, member_ids):
         """Add members to group."""
         if not member_ids:
@@ -170,6 +153,8 @@ class UserGroupManager:
                 new_group = self.client.groups.create(display_name=group_name)
                 self.existing_groups[group_name] = new_group
                 logger.info(f"Created new group: {group_name}")
+            else:
+                logger.info(f"Existing group found: {group_name}")
 
             if parent_id:
                 self._ensure_parent_relationship(group_name, parent_id)
@@ -188,7 +173,6 @@ class UserGroupManager:
             current_parents = self.group_parent_map.get(current_group.id, [])
             for cp in current_parents:
                 if not parent_id or cp != parent_id:
-                    print(current_group)
                     self._remove_from_parent(current_group.id, cp)
 
             # Add correct parent
@@ -216,13 +200,14 @@ class UserGroupManager:
         logger.info(f"Removed group {group_id} from parent {parent_id}")
 
     def _sync_users(self, groups):
+        ref_user_prefix = "Users"
         for group in groups:
             group_name = group["name"]
             group_id = self.existing_groups[group_name].id
             current_users = {
                 m.value: m
                 for m in self.client.groups.get(id=group_id).members
-                if m.type == "user"
+                if ref_user_prefix in m.ref
             }
 
             # Add missing users
@@ -249,6 +234,8 @@ class UserGroupManager:
                             )
                         ],
                     )
+            if "groups" in group:
+                self._sync_users(group["groups"])
 
 
 # Rest of the original functions (create_user, add_members_to_group, etc.) remain same

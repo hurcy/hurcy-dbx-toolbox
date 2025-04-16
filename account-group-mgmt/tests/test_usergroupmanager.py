@@ -10,7 +10,7 @@ def manager():
     host = 'https://accounts.cloud.databricks.com'
     account_id = "0d26daa6-5e44-4c97-a497-ef015f91254a" # databricks account id
     client_id = "a8c4d92d-1961-4249-ab45-2949534b4838" # client id of a service principal(having admin permission)
-    client_secret = ""
+    client_secret = "please replace secret"
     client = AccountClient(host=host,
                             account_id=account_id,
                             client_id=client_id,

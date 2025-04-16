@@ -10,7 +10,7 @@ export DATABRICKS_CLIENT_SECRET="client secret"
 
 ## Organization changes over time
 
-1. org_chart.yaml
+1. org_chart.ver1.yaml
 
 ```
 graph TD
@@ -78,53 +78,65 @@ graph TD
 
 ## Syncronization logs
 
+- Sync results of initial organizational structure: org_chart.ver1.yaml
 ```
-➜  scratch git:(main) ✗ python user_group_sync.py org_chart.yaml 
-2025-04-15 18:32:38,167 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
-2025-04-15 18:32:38,683 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:32:45,335 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
-2025-04-15 18:32:45,752 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:32:45,984 - INFO - Synchronization completed successfully
-➜  scratch git:(main) ✗ python user_group_sync.py org_chart.ver2.yaml
-2025-04-15 18:33:47,359 - INFO - Members added to group: 1 members -> Group ID 216797855855967
-2025-04-15 18:33:47,359 - INFO - Updated parent relationship: DEVOPS -> 216797855855967
-Group(display_name='DEVOPS', entitlements=[], external_id=None, groups=[], id='1009053924994174', members=[], meta=None, roles=[], schemas=None)
-2025-04-15 18:33:50,438 - INFO - Removed group 1009053924994174 from parent 357782097970744
-2025-04-15 18:33:50,844 - INFO - Members added to group: 1 members -> Group ID 216797855855967
-2025-04-15 18:33:50,844 - INFO - Updated parent relationship: DEVOPS -> 216797855855967
-2025-04-15 18:34:05,253 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
-2025-04-15 18:34:05,764 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:34:12,106 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
-2025-04-15 18:34:12,726 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:34:12,987 - INFO - Synchronization completed successfully
-➜  scratch git:(main) ✗ python user_group_sync.py org_chart.yaml     
-2025-04-15 18:34:57,212 - INFO - Members added to group: 1 members -> Group ID 357782097970744
-2025-04-15 18:34:57,213 - INFO - Updated parent relationship: DEVOPS -> 357782097970744
-Group(display_name='DEVOPS', entitlements=[], external_id=None, groups=[], id='1009053924994174', members=[], meta=None, roles=[], schemas=None)
-2025-04-15 18:35:00,754 - INFO - Removed group 1009053924994174 from parent 216797855855967
-2025-04-15 18:35:01,263 - INFO - Members added to group: 1 members -> Group ID 357782097970744
-2025-04-15 18:35:01,263 - INFO - Updated parent relationship: DEVOPS -> 357782097970744
-2025-04-15 18:35:15,772 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
-2025-04-15 18:35:16,232 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:35:22,138 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
-2025-04-15 18:35:22,578 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:35:22,814 - INFO - Synchronization completed successfully
-➜  scratch git:(main) ✗ python user_group_sync.py org_chart.yaml
-2025-04-15 18:36:24,012 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
-2025-04-15 18:36:24,514 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:36:30,530 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
-2025-04-15 18:36:30,985 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:36:31,232 - INFO - Synchronization completed successfully
+➜  scratch git:(main) ✗ python user_group_sync.py org_chart.ver1.yaml
+2025-04-16 11:44:14,143 - INFO - Existing group found: ENGINEERING
+2025-04-16 11:44:14,143 - INFO - Existing group found: FRONTEND
+2025-04-16 11:44:14,144 - INFO - Existing group found: BACKEND
+2025-04-16 11:44:14,144 - INFO - Existing group found: DEVOPS
+2025-04-16 11:44:14,144 - INFO - Existing group found: SALES
+2025-04-16 11:44:14,144 - INFO - Existing group found: REGIONAL_SALES
+2025-04-16 11:44:14,144 - INFO - Existing group found: HR
+2025-04-16 11:44:14,144 - INFO - Existing group found: TRAINING
+2025-04-16 11:44:14,144 - INFO - Existing group found: RECRUITMENT
+2025-04-16 11:44:14,144 - INFO - Existing group found: EXECUTIVE
+2025-04-16 11:44:14,144 - INFO - Existing group found: FUTURE_PROJECTS
+2025-04-16 11:44:14,144 - INFO - Existing group found: PAST_PROJECTS
+2025-04-16 11:44:14,144 - INFO - Existing group found: SOME_TF
+2025-04-16 11:44:21,551 - INFO - Existing user found: Alice Kim (alice.kim@acme.com)
+2025-04-16 11:44:27,376 - INFO - Existing user found: Bob Lee (bob.lee@acme.com)
+2025-04-16 11:44:36,143 - INFO - Existing user found: David Choi (david.choi@acme.com)
+2025-04-16 11:44:48,405 - INFO - Existing user found: Charlie Park (charlie.park@acme.com)
+2025-04-16 11:45:00,394 - INFO - Existing user found: Eva Jung (eva.jung@acme.com)
+2025-04-16 11:45:07,158 - INFO - Existing user found: Frank Moon (frank.moon@acme.com)
+2025-04-16 11:45:08,059 - INFO - Existing user found: Grace Yoon (grace.yoon@acme.com)
+2025-04-16 11:45:21,609 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
+2025-04-16 11:45:27,652 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
+2025-04-16 11:45:28,958 - INFO - Synchronization completed successfully
 ```
 
-## NOTE
-- initial loading time takes about 30 seconds if account has 128 groups, 3550 users.
+- Sync results of modified organizational structure: org_chart.ver2.yaml
+```
+➜  scratch git:(main) ✗ python user_group_sync.py org_chart.ver2.yaml 
+2025-04-16 11:50:34,243 - INFO - Existing group found: ENGINEERING
+2025-04-16 11:50:34,244 - INFO - Existing group found: FRONTEND
+2025-04-16 11:50:34,244 - INFO - Existing group found: BACKEND
+2025-04-16 11:50:34,244 - INFO - Existing group found: DEVOPS
+2025-04-16 11:50:34,784 - INFO - Members added to group: 1 members -> Group ID 216797855855967
+2025-04-16 11:50:34,785 - INFO - Updated parent relationship: DEVOPS -> 216797855855967
+2025-04-16 11:50:34,785 - INFO - Existing group found: SALES
+2025-04-16 11:50:34,785 - INFO - Existing group found: REGIONAL_SALES
+2025-04-16 11:50:34,785 - INFO - Existing group found: HR
+2025-04-16 11:50:34,785 - INFO - Existing group found: TRAINING
+2025-04-16 11:50:34,785 - INFO - Existing group found: RECRUITMENT
+2025-04-16 11:50:34,785 - INFO - Existing group found: EXECUTIVE
+2025-04-16 11:50:34,785 - INFO - Existing group found: FUTURE_PROJECTS
+2025-04-16 11:50:39,971 - INFO - Removed group 1009053924994174 from parent 357782097970744
+2025-04-16 11:50:40,410 - INFO - Members added to group: 1 members -> Group ID 216797855855967
+2025-04-16 11:50:40,410 - INFO - Updated parent relationship: DEVOPS -> 216797855855967
+2025-04-16 11:50:47,582 - INFO - Existing user found: Alice Kim (alice.kim@acme.com)
+2025-04-16 11:50:53,178 - INFO - Existing user found: Bob Lee (bob.lee@acme.com)
+2025-04-16 11:51:01,848 - INFO - Existing user found: David Choi (david.choi@acme.com)
+2025-04-16 11:51:14,464 - INFO - Existing user found: Charlie Park (charlie.park@acme.com)
+2025-04-16 11:51:26,368 - INFO - Existing user found: Eva Jung (eva.jung@acme.com)
+2025-04-16 11:51:33,238 - INFO - Existing user found: Frank Moon (frank.moon@acme.com)
+2025-04-16 11:51:34,158 - INFO - Existing user found: Grace Yoon (grace.yoon@acme.com)
+2025-04-16 11:51:47,680 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
+2025-04-16 11:51:53,602 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
+2025-04-16 11:51:54,365 - INFO - Synchronization completed successfully
+```
 
 
 ## TODO
-- bug fix unnecessary user sync
-2025-04-15 18:36:24,012 - INFO - Existing user found: Helen Kwon (helen.kwon@acme.com)
-2025-04-15 18:36:24,514 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:36:30,530 - INFO - Existing user found: Ian Bae (ian.bae@acme.com)
-2025-04-15 18:36:30,985 - INFO - Members added to group: 1 members -> Group ID 663409434560886
-2025-04-15 18:36:31,232 - INFO - Synchronization completed successfully
+- Reduce sync time by optimize repetivie loading of users and groups information from account console
