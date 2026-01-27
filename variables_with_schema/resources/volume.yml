@@ -1,6 +1,0 @@
-resources:
-  volumes:
-    system2_transfer:
-      catalog_name: bar_bu2_mig
-      name: system2_transfer
-      schema_name: ${var.name_prefix}system2
