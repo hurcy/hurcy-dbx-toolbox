@@ -26,3 +26,11 @@ provider "databricks" {
   host      = azurerm_databricks_workspace.ws.workspace_url
   auth_type = "azure-cli"
 }
+
+provider "databricks" {
+  alias           = "accounts"
+  host            = "https://accounts.azuredatabricks.net"
+  account_id      = var.databricks_account_id
+  azure_tenant_id = var.azure_tenant_id
+  auth_type       = "azure-cli"
+}

@@ -30,6 +30,13 @@ cidr = "100.64.0.0/23"
 # pbi_subnet_cidr     = "100.64.1.64/26"
 
 #--------------------------------------------------------------
+# Databricks Account Configuration
+#--------------------------------------------------------------
+databricks_account_id = "<databricks_account_id>"
+azure_tenant_id       = "<azure_tenant_id>"
+uc_metastore_name     = "<uc_metastore_name>"
+
+#--------------------------------------------------------------
 # Databricks Workspace Configuration
 #--------------------------------------------------------------
 sku                              = "premium"

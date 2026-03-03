@@ -46,7 +46,7 @@ resource "azurerm_user_assigned_identity" "mi" {
 # Storage Account
 #--------------------------------------------------------------
 resource "azurerm_storage_account" "storage" {
-  name                     = "${replace(var.prefix, "-", "")}s"
+  name                     = replace("${var.prefix}${local.name_suffix}", "-", "")
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -84,7 +84,11 @@ resource "databricks_storage_credential" "storage_cred" {
   }
   comment = "Storage credential for ${azurerm_storage_account.storage.name}"
 
-  depends_on = [azurerm_role_assignment.ac_storage_contributor]
+  depends_on = [
+    azurerm_role_assignment.ac_storage_contributor,
+    databricks_metastore_assignment.this,
+    databricks_grants.metastore,
+  ]
 }
 
 resource "databricks_grants" "storage_cred_grants" {
@@ -104,7 +108,10 @@ resource "databricks_external_location" "data" {
   credential_name = databricks_storage_credential.storage_cred.name
   comment         = "External location for data container in ${azurerm_storage_account.storage.name}"
 
-  depends_on = [databricks_storage_credential.storage_cred]
+  depends_on = [
+    databricks_storage_credential.storage_cred,
+    databricks_grants.metastore,
+  ]
 }
 
 resource "databricks_grants" "external_location_grants" {
@@ -382,24 +389,30 @@ resource "azurerm_databricks_workspace" "ws" {
 #--------------------------------------------------------------
 # Databricks Workspace Admin
 #--------------------------------------------------------------
-data "databricks_group" "admins" {
-  display_name = "admins"
-}
-
-# 기존 사용자를 조회 (이미 존재하는 경우)
 data "databricks_user" "admin_user" {
-  user_name = var.admin_user_email
+  provider   = databricks.accounts
+  user_name  = var.admin_user_email
 }
 
-resource "databricks_group_member" "admin_user_is_admin" {
-  group_id  = data.databricks_group.admins.id
-  member_id = data.databricks_user.admin_user.id
+resource "databricks_mws_permission_assignment" "admin_user" {
+  provider     = databricks.accounts
+  workspace_id = azurerm_databricks_workspace.ws.workspace_id
+  principal_id = data.databricks_user.admin_user.id
+  permissions  = ["ADMIN"]
 }
 
 #--------------------------------------------------------------
 # Databricks Service Principal (from Managed Identity)
 #--------------------------------------------------------------
 resource "databricks_service_principal" "mi_sp" {
+  provider       = databricks.accounts
   application_id = azurerm_user_assigned_identity.mi.client_id
   display_name   = "${local.resource_name}-mi-sp"
+}
+
+resource "databricks_mws_permission_assignment" "mi_sp" {
+  provider     = databricks.accounts
+  workspace_id = azurerm_databricks_workspace.ws.workspace_id
+  principal_id = databricks_service_principal.mi_sp.id
+  permissions  = ["USER"]
 }

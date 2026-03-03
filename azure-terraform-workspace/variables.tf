@@ -85,6 +85,24 @@ variable "pbi_subnet_cidr" {
 }
 
 #--------------------------------------------------------------
+# Databricks Account Configuration
+#--------------------------------------------------------------
+variable "databricks_account_id" {
+  description = "Databricks Account Console ID for account-level operations"
+  type        = string
+}
+
+variable "azure_tenant_id" {
+  description = "Azure AD tenant ID where the Databricks account resides"
+  type        = string
+}
+
+variable "uc_metastore_name" {
+  description = "Name of the existing Unity Catalog metastore to assign to the workspace"
+  type        = string
+}
+
+#--------------------------------------------------------------
 # Databricks Workspace Configuration
 #--------------------------------------------------------------
 variable "sku" {
