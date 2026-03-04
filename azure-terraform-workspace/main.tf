@@ -208,13 +208,73 @@ resource "azurerm_subnet" "pbi" {
 }
 
 #--------------------------------------------------------------
-# Network Security Group
+# Network Security Group - Compute (public + private subnets)
 #--------------------------------------------------------------
 resource "azurerm_network_security_group" "nsg" {
   name                = "${local.resource_name}-nsg"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   tags                = local.tags
+
+  security_rule {
+    name                       = "allow-vnet-outbound"
+    priority                   = 100
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
+  }
+
+  security_rule {
+    name                       = "allow-worker-to-sql"
+    priority                   = 110
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3306"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "Sql"
+  }
+
+  security_rule {
+    name                       = "allow-worker-to-storage"
+    priority                   = 120
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "Storage"
+  }
+
+  security_rule {
+    name                       = "allow-worker-to-eventhub"
+    priority                   = 130
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "9093"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "EventHub"
+  }
+
+  security_rule {
+    name                       = "deny-all-outbound"
+    priority                   = 4096
+    direction                  = "Outbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 resource "azurerm_subnet_network_security_group_association" "public_nsg" {
@@ -225,6 +285,45 @@ resource "azurerm_subnet_network_security_group_association" "public_nsg" {
 resource "azurerm_subnet_network_security_group_association" "private_nsg" {
   subnet_id                 = azurerm_subnet.private.id
   network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
+#--------------------------------------------------------------
+# Network Security Group - Private Endpoint subnet
+#--------------------------------------------------------------
+resource "azurerm_network_security_group" "pe_nsg" {
+  name                = "${local.resource_name}-pe-nsg"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  tags                = local.tags
+
+  security_rule {
+    name                       = "allow-databricks-inbound"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_ranges    = ["443", "3306", "6666", "8443-8451"]
+    source_address_prefix      = "AzureDatabricks"
+    destination_address_prefix = "VirtualNetwork"
+  }
+
+  security_rule {
+    name                       = "allow-vnet-inbound"
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_ranges    = ["443", "3306", "6666", "8443-8451"]
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
+  }
+}
+
+resource "azurerm_subnet_network_security_group_association" "pe_nsg" {
+  subnet_id                 = azurerm_subnet.pe.id
+  network_security_group_id = azurerm_network_security_group.pe_nsg.id
 }
 
 #--------------------------------------------------------------

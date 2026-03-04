@@ -151,6 +151,42 @@ variable "enable_private_endpoints" {
 }
 
 #--------------------------------------------------------------
+# Network Policy Configuration
+#--------------------------------------------------------------
+variable "network_policy_restriction_mode" {
+  description = "Serverless egress restriction mode (FULL_ACCESS or RESTRICTED_ACCESS)"
+  type        = string
+  default     = "FULL_ACCESS"
+}
+
+variable "network_policy_enforcement_mode" {
+  description = "Network policy enforcement mode (ENFORCED or DRY_RUN)"
+  type        = string
+  default     = "DRY_RUN"
+}
+
+variable "allowed_internet_destinations" {
+  description = "List of allowed internet destinations for serverless egress"
+  type = list(object({
+    destination = string
+    type        = string
+  }))
+  default = []
+}
+
+variable "enable_ip_access_list" {
+  description = "Enable IP-based access control for the workspace"
+  type        = bool
+  default     = false
+}
+
+variable "allowed_ip_addresses" {
+  description = "List of allowed IP addresses/CIDRs for workspace access"
+  type        = list(string)
+  default     = []
+}
+
+#--------------------------------------------------------------
 # Databricks Admin User Configuration
 #--------------------------------------------------------------
 variable "admin_user_email" {

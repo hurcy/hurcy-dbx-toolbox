@@ -18,3 +18,4 @@ sep-testing
 .DS_Store
 .env
 terraform.tfvars
+docs/
